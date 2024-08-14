@@ -100,3 +100,33 @@ const Game = (name1, name2) => {
   // Return the public methods
   return { startGame, playTurn };
 };
+
+
+const displayController = () => {
+  const renderBoard = () => {
+    const htmlBoard = document.querySelector("#container");
+    const board = Gameboard.getBoard();
+
+    // Update the innerHTML of each spot on the board
+    board.forEach((spot, index) => {
+      const spotElement = htmlBoard.children[index];
+      spotElement.textContent = spot;
+    });
+  };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// JS for welcome screen and pre game UI
