@@ -18,7 +18,11 @@ const Gameboard = (() => {
     }
   };
 
-  return {getBoard, setBoard};
+  const resetBoard = () => {
+    board = ["", "", "","", "", "", "", "", ""];
+  };
+
+  return {getBoard, setBoard, resetBoard};
 })();
 
 const Player = ((name, marker) => {
@@ -30,3 +34,16 @@ const Player = ((name, marker) => {
 
   return {getName, getMarker};
 })();
+
+
+const Game = (name1, name2) => {
+  // Initialize players
+  const player1 = Player(name1, "X");
+  const player2 = Player(name2, "O");
+  let currentPlayer = player1;
+
+  // Initialize gameboard
+  const board = Gameboard();
+
+
+};
