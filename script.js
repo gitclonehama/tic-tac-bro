@@ -44,7 +44,7 @@ const Game = (name1, name2) => {
   let currentPlayer = player1;
 
   // Initialize gameboard
-  const board = Gameboard();
+  const board = Gameboard;
 
   // Start or restart game
   const startGame = () => {
