@@ -20,12 +20,13 @@ const Gameboard = (() => {
 
   const resetBoard = () => {
     board = ["", "", "","", "", "", "", "", ""];
+    return board;
   };
 
   return {getBoard, setBoard, resetBoard};
 })();
 
-const Player = ((name, marker) => {
+const Player = (name, marker) => {
   const playerName = name;
   const playerMarker = marker;
 
@@ -33,7 +34,7 @@ const Player = ((name, marker) => {
   const getMarker = () => playerMarker;
 
   return {getName, getMarker};
-})();
+};
 
 
 const Game = (name1, name2) => {
