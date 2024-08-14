@@ -66,5 +66,32 @@ const Game = (name1, name2) => {
     }
   };
 
+  // Switch the active player
+  const switchTurn = () => {
+    currentPlayer = (currentPlayer === player1) ? player2 : player1;
+  };
 
+  // Check if there's a winning combination on the board
+  const checkWin = () => {
+    const winningCombinations = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Columns
+      [0, 4, 8], [2, 4, 6]              // Diagonals
+    ];
+
+    return winningCombinations.some(combination => {
+      const [a, b, c] = combination;
+      return board.getBoard()[a] !== "" &&
+             board.getBoard()[a] === board.getBoard()[b] &&
+             board.getBoard()[a] === board.getBoard()[c];
+    });
+  };
+
+  // Check if all spots are filled, indicating a tie
+  const checkTie = () => {
+    return board.getBoard().every(spot => spot !== "");
+  };
+
+  // Return the public methods
+  return { startGame, playTurn };
 };
