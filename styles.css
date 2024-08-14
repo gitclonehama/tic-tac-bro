@@ -29,3 +29,6 @@ body {
   font-size: x-large;
   font-weight: 500;
 }
+.hidden {
+  display: none;
+}
