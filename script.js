@@ -131,6 +131,12 @@ const displayController = (() => {
     }
   }
   
+
+
+
+
+
+  
   return {
     showGameScreen,
     renderBoard,
