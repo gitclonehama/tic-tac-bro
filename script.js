@@ -153,6 +153,15 @@ const displayController = (() => {
     messageElement.textContent = message;
   };
 
+  // Show result to the message container
+  const showResult = (winner) => {
+    if (winner) {
+      displayMessage(`${winner.getName()} wins!`);
+    } else {
+      displayMessage("It's a tie!");
+    }
+  };
+  
   return {
     showGameScreen,
     renderBoard,
