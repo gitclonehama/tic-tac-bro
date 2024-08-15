@@ -7,6 +7,11 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   text-align: center;
 }
 
@@ -20,6 +25,12 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 5px;
+}
+#player-form {
+  background-color: coral;
+  width: 40%; min-width: 500px; max-width: 800px;
+  display: flex;
+  flex-direction: column;
 }
 .cell {
   background-color: bisque;
