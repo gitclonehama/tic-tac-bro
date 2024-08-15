@@ -161,7 +161,14 @@ const displayController = (() => {
       displayMessage("It's a tie!");
     }
   };
-  
+
+  // Initialize the board
+  const initializeBoard = (gameInstance) => {
+    renderBoard(gameInstance.getBoard());
+    bindEvents(gameInstance);
+  };
+
+
   return {
     showGameScreen,
     renderBoard,
