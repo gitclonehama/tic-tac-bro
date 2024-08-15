@@ -101,7 +101,8 @@ const Game = (name1, name2) => {
   return { startGame, playTurn };
 };
 
-
+// Display controller module handles all methods and needed functions to
+// Display and update game state to the HTML UI
 const displayController = (() => {
   const htmlBoard = document.querySelector("#container");
   const playerForm = document.querySelector("#playerForm");
