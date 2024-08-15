@@ -58,12 +58,12 @@ const Game = (name1, name2) => {
     if (board.setBoard(index, currentPlayer.getMarker())) {  // Check if move is valid
       if (checkWin()) {
         console.log(board.getBoard());
-        console.log(`${currentPlayer.getName()} wins!`);
+        alert(`${currentPlayer.getName()} wins!`);
         return;  // End the game or reset as needed
       }
       if (checkTie()) {
         console.log(board.getBoard());
-        console.log("It's a tie!");
+        alert("It's a tie!");
         return;  // End the game or reset as needed
       }
       console.log(board.getBoard());
