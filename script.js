@@ -131,16 +131,33 @@ const displayController = (() => {
     }
   }
   
+  // Clear the board
+  const clearBoard = () => {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => cell.textContent = "");
+  }
 
+  // Bind events to the html board
+  const bindEvents = (gameInstance) => {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+      cell.addEventListener("click", () => {
+        const index = cell.dataset.index;
+        gameInstance.playTurn(index);
+      });
+    });
+  };
 
-
-
-
-  
   return {
     showGameScreen,
     renderBoard,
-
+    updateCell,
+    clearBoard,
+    bindEvents,
+    displayMessage,
+    showResult,
+    initializeBoard,
+    restartGame
   };
 })();
 
