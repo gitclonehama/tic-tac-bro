@@ -168,6 +168,11 @@ const displayController = (() => {
     bindEvents(gameInstance);
   };
 
+  // Restart the game
+  const restartGame = () => {
+    clearBoard();
+    displayMessage("New game! Let's play!");
+  };
 
   return {
     showGameScreen,
