@@ -28,7 +28,7 @@ const Gameboard = (() => {
 
 const Player = (name, marker) => {
   const playerName = name;
-  const playerMarker = marker;
+  const playerMarker = marker.toUpperCase();
 
   const getName = () => playerName;
   const getMarker = () => playerMarker;
@@ -107,14 +107,14 @@ const displayController = (() => {
   const playerForm = document.querySelector("#playerForm");
   const gameMessages = document.querySelector("#messages");
   
-  
+  // Hide player name form and display game board
   const showGameScreen = () => {
     playerForm.classList.add("hidden");    // Hide player form
     htmlBoard.classList.remove("hidden");  // Show game container
   };
   
+  // Full board render
   const renderBoard = () => {
-    const htmlBoard = document.querySelector("#container");
     const board = Gameboard.getBoard();
     // Update the innerHTML of each spot on the board
     board.forEach((spot, index) => {
@@ -123,7 +123,14 @@ const displayController = (() => {
     });
   };
 
-
+  // Update just one cell
+  const updateCell = (index, marker) => {
+    const cell = document.querySelector(`[data-index='${index}']`);
+    if (cell) {
+      cell.textContent = marker;
+    }
+  }
+  
   return {
     showGameScreen,
     renderBoard,
