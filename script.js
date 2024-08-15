@@ -109,8 +109,8 @@ const displayController = () => {
 
     // Update the innerHTML of each spot on the board
     board.forEach((spot, index) => {
-      const spotElement = htmlBoard.children[index];
-      spotElement.textContent = spot;
+      const boardCell = htmlBoard.children[index];
+      boardCell.textContent = spot;
     });
   };
 }
@@ -122,7 +122,7 @@ const playButton = document.querySelector("#playButton");
 const gameContainer = document.querySelector("#container");
 const playerForm = document.querySelector("#playerForm");
 
-playButton.addEventListener("click", () => {
+playButton.addEventListener("click", (event) => {
   event.preventDefault();  
   // when playButton is clicked, add .hidden to form and
   playerForm.classList.add("hidden");
