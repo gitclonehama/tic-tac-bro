@@ -144,7 +144,15 @@ const displayController = (() => {
     cells.forEach(cell => {
       cell.addEventListener("click", () => {
         const index = cell.dataset.index;
+
+        // Play the turn and let game logic handle the move
         gameInstance.playTurn(index);
+
+        // Get the updated board and marker from the game logic
+        const marker = Gameboard.getBoard()[index];
+        
+        // Update the cell using displayController method
+        displayController.updateCell(index, marker);
       });
     });
   };
@@ -165,7 +173,7 @@ const displayController = (() => {
 
   // Initialize the board
   const initializeBoard = (gameInstance) => {
-    renderBoard(gameInstance.getBoard());
+    renderBoard();
     bindEvents(gameInstance);
   };
 
@@ -192,9 +200,17 @@ const displayController = (() => {
 
 // Event listeners
 const playButton = document.querySelector("#playButton");
-
-// Transition to game screen
 playButton.addEventListener("click", (event) => {
-  event.preventDefault();  
+  event.preventDefault();
+
+  const playerName1 = document.querySelector("#player1").value;
+  const playerName2 = document.querySelector("#player2").value;
+  
+  // Create new Game instance
+  const gameInstance = Game(playerName1, playerName2);
+  
+  // Transition to game screen
   displayController.showGameScreen();
+
+  displayController.initializeBoard(gameInstance);
 });
