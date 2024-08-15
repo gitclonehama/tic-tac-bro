@@ -102,30 +102,42 @@ const Game = (name1, name2) => {
 };
 
 
-const displayController = () => {
+const displayController = (() => {
+  const htmlBoard = document.querySelector("#container");
+  const playerForm = document.querySelector("#playerForm");
+  const gameMessages = document.querySelector("#messages");
+  
+  
+  const showGameScreen = () => {
+    playerForm.classList.add("hidden");    // Hide player form
+    htmlBoard.classList.remove("hidden");  // Show game container
+  };
+  
   const renderBoard = () => {
     const htmlBoard = document.querySelector("#container");
     const board = Gameboard.getBoard();
-
     // Update the innerHTML of each spot on the board
     board.forEach((spot, index) => {
       const boardCell = htmlBoard.children[index];
       boardCell.textContent = spot;
     });
   };
-}
+
+
+  return {
+    showGameScreen,
+    renderBoard,
+
+  };
+})();
 
 
 
-// JS for welcome screen and pre game UI
+// Event listeners
 const playButton = document.querySelector("#playButton");
-const gameContainer = document.querySelector("#container");
-const playerForm = document.querySelector("#playerForm");
 
+// Transition to game screen
 playButton.addEventListener("click", (event) => {
   event.preventDefault();  
-  // when playButton is clicked, add .hidden to form and
-  playerForm.classList.add("hidden");
-  // remove .hidden from gameContainer
-  gameContainer.classList.remove("hidden");
+  displayController.showGameScreen();
 });
