@@ -117,16 +117,15 @@ const displayController = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // JS for welcome screen and pre game UI
+const playButton = document.querySelector("#playButton");
+const gameContainer = document.querySelector("#container");
+const playerForm = document.querySelector("#playerForm");
+
+playButton.addEventListener("click", () => {
+  event.preventDefault();  
+  // when playButton is clicked, add .hidden to form and
+  playerForm.classList.add("hidden");
+  // remove .hidden from gameContainer
+  gameContainer.classList.remove("hidden");
+});
