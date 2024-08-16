@@ -58,16 +58,13 @@ const Game = (name1, name2) => {
   const playTurn = (index) => {
     if (board.setBoard(index, currentPlayer.getMarker())) {  // Check if move is valid
       if (checkWin()) {
-        console.log(board.getBoard());
-        alert(`${currentPlayer.getName()} wins!`);
-        return;  // End the game or reset as needed
+        displayController.displayMessage(`${currentPlayer.getName()} wins!`);
+        return;
       }
       if (checkTie()) {
-        console.log(board.getBoard());
-        alert("It's a tie!");
-        return;  // End the game or reset as needed
+        displayController.displayMessage("It's a tie!");
+        return;
       }
-      console.log(board.getBoard());
       switchTurn();  // Move to the next player's turn
     }
   };
