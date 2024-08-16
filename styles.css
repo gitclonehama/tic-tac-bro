@@ -17,17 +17,17 @@ body {
 
 #container {
   background-color: lightseagreen;
-  width: 800px;
-  height: 800px;
+  width: 30vw; min-width: 300px; max-width: 900px;
+  height: 30vw; min-height: 300px; max-height: 900px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 20px auto;
   padding: 5px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   gap: 5px;
 }
 #playerForm {
-  background-color: coral;
+  background-color: green;
   width: 40%; min-width: 300px; max-width: 400px;
   display: flex;
   flex-direction: column;
