@@ -50,6 +50,9 @@ const Game = (name1, name2) => {
   // Initialize gameboard
   const board = Gameboard;
 
+  // Get current player method
+  const getCurrentPlayer = () => currentPlayer;
+
 
   // Play a turn (playing marker on board)
   const playTurn = (index) => {
@@ -100,11 +103,12 @@ const Game = (name1, name2) => {
     board.resetBoard();
     currentPlayer = player1;
   };
-  
+
   // Return the public methods
   return { 
-    resetGame, 
-    playTurn 
+    getCurrentPlayer,
+    playTurn, 
+    resetGame 
   };
 };
 
