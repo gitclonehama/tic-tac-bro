@@ -153,17 +153,17 @@ const displayController = (() => {
   const bindEvents = (gameInstance) => {
     const cells = document.querySelectorAll(".cell");
     cells.forEach(cell => {
+      // For each cell we are adding a "click" event listener that will
+      // update our display and also play the turn
       cell.addEventListener("click", () => {
         const index = cell.dataset.index;
+        const marker = gameInstance.getCurrentPlayer().getMarker();
 
-        // Play the turn and let game logic handle the move
-        gameInstance.playTurn(index);
-
-        // Get the updated board and marker from the game logic
-        const marker = Gameboard.getBoard()[index];
-        
         // Update the cell using displayController method
         displayController.updateCell(index, marker);
+        
+        // Play the turn and let game logic handle the move
+        gameInstance.playTurn(index);
       });
     });
   };
