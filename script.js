@@ -59,10 +59,12 @@ const Game = (name1, name2) => {
     if (board.setBoard(index, currentPlayer.getMarker())) {  // Check if move is valid
       if (checkWin()) {
         displayController.displayMessage(`${currentPlayer.getName()} wins!`);
+        displayController.showReplay();
         return;
       }
       if (checkTie()) {
         displayController.displayMessage("It's a tie!");
+        displayController.showReplay();
         return;
       }
       switchTurn();  // Move to the next player's turn
@@ -122,6 +124,12 @@ const displayController = (() => {
     htmlBoard.classList.remove("hidden");  // Show game container
   };
   
+  // Toggle play again button
+  const showReplay = () => {
+    const replayButton = document.querySelector("#replayButton");
+    replayButton.classList.remove("hidden");
+  };
+
   // Full board render
   const renderBoard = () => {
     const board = Gameboard.getBoard();
@@ -193,6 +201,7 @@ const displayController = (() => {
 
   return {
     showGameScreen,
+    showReplay,
     renderBoard,
     updateCell,
     clearBoard,
