@@ -159,7 +159,7 @@ const displayController = (() => {
 
   // Display any message to players (through a div above game board)
   const displayMessage = (message) => {
-    messageElement.textContent = message;
+    gameMessages.textContent = message;
   };
 
   // Show result to the message container
