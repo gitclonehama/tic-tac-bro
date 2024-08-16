@@ -60,6 +60,7 @@ const Game = (name1, name2) => {
       if (checkWin()) {
         displayController.displayMessage(`${currentPlayer.getName()} wins!`);
         displayController.showReplay();
+        
         return;
       }
       if (checkTie()) {
@@ -194,7 +195,7 @@ const displayController = (() => {
   };
 
   // Restart the game
-  const restartGame = () => {
+  const resetDisplay = () => {
     clearBoard();
     displayMessage("New game! Let's play!");
   };
@@ -209,7 +210,7 @@ const displayController = (() => {
     displayMessage,
     showResult,
     initializeBoard,
-    restartGame
+    resetDisplay
   };
 })();
 
@@ -217,6 +218,8 @@ const displayController = (() => {
 
 // Running logic
 const playButton = document.querySelector("#playButton");
+const replayButton = document.querySelector("#replayButton");
+
 playButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -230,4 +233,11 @@ playButton.addEventListener("click", (event) => {
   displayController.showGameScreen();
 
   displayController.initializeBoard(gameInstance);
+
+  // Replay game logic
+  replayButton.addEventListener("click", (event) => {
+    gameInstance.resetGame();
+    displayController.resetDisplay();
+    replayButton.classList.add("hidden");
+  });
 });

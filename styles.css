@@ -55,7 +55,19 @@ body {
   background-color: #f39c12; /* Darker Yellow */
   transform: scale(1.1);
 }
-
+#replayButton {
+  background-color: #f1c40f; /* Yellow */
+  width: 60%; max-width: 200px;
+  height: 40px;
+  margin: 10px auto 0;
+  text-align: center;
+  font-size: large;
+  border-radius: 10px;
+}
+#replayButton:hover {
+  background-color: #f39c12; /* Darker Yellow */
+  transform: scale(1.1);
+}
 .cell {
   background-color: bisque;
   display: flex;
@@ -64,6 +76,7 @@ body {
   font-size: x-large;
   font-weight: 500;
 }
+
 .hidden {
   display: none !important;
 }
