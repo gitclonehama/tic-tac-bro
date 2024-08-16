@@ -34,7 +34,10 @@ const Player = (name, marker) => {
   const getName = () => playerName;
   const getMarker = () => playerMarker;
 
-  return {getName, getMarker};
+  return {
+    getName, 
+    getMarker
+  };
 };
 
 
@@ -46,13 +49,7 @@ const Game = (name1, name2) => {
 
   // Initialize gameboard
   const board = Gameboard;
-  console.log(board.getBoard());
 
-  // Start or restart game
-  const startGame = () => {
-    board.resetBoard();
-    currentPlayer = player1;
-  };
 
   // Play a turn (playing marker on board)
   const playTurn = (index) => {
@@ -98,8 +95,17 @@ const Game = (name1, name2) => {
     return board.getBoard().every(spot => spot !== "");
   };
 
+  // Reset the game state and current player
+  const resetGame = () => {
+    board.resetBoard();
+    currentPlayer = player1;
+  };
+  
   // Return the public methods
-  return { startGame, playTurn };
+  return { 
+    resetGame, 
+    playTurn 
+  };
 };
 
 // Display controller module handles all methods and needed functions to
