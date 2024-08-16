@@ -54,10 +54,12 @@ const Game = (name1, name2) => {
   // Get current player method
   const getCurrentPlayer = () => currentPlayer;
 
+  // Get state of gameOver
+  const isGameOver = () => gameOver;
 
   // Play a turn (playing marker on board)
   const playTurn = (index) => {
-    if (gameOver) return; // Check if gameOver is active
+    if (gameOver) return;
 
     if (board.setBoard(index, currentPlayer.getMarker())) {  // Check if move is valid
       if (checkWin()) {
@@ -112,8 +114,9 @@ const Game = (name1, name2) => {
   // Return the public methods
   return { 
     getCurrentPlayer,
-    playTurn, 
-    resetGame 
+    playTurn,
+    isGameOver, 
+    resetGame
   };
 };
 
@@ -167,6 +170,8 @@ const displayController = (() => {
       // For each cell we are adding a "click" event listener that will
       // update our display and also play the turn
       cell.addEventListener("click", () => {
+        if (gameInstance.isGameOver()) return;
+
         const index = cell.dataset.index;
         const marker = gameInstance.getCurrentPlayer().getMarker();
 
