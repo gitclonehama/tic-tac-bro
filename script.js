@@ -209,7 +209,7 @@ const displayController = (() => {
 
 
 
-// Event listeners
+// Running logic
 const playButton = document.querySelector("#playButton");
 playButton.addEventListener("click", (event) => {
   event.preventDefault();
