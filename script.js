@@ -1,29 +1,30 @@
 console.log("Hello, World!");
 
 const Gameboard = (() => {
-  let board = ["", "", "",
-               "", "", "", 
-               "", "", ""];
-  
+  let board = ["", "", "", "", "", "", "", "", ""];
+
   const getBoard = () => board;
 
   const setBoard = (index, marker) => {
     if (board[index] === "") {
       board[index] = marker;
       return true;
-    }
-    else {
-      alert("Spot taken!")
+    } else {
+      alert("Spot taken!");
       return false;
     }
   };
 
   const resetBoard = () => {
-    board = ["", "", "","", "", "", "", "", ""];
+    board = ["", "", "", "", "", "", "", "", ""];
     return board;
   };
 
-  return {getBoard, setBoard, resetBoard};
+  return { 
+    getBoard, 
+    setBoard, 
+    resetBoard 
+  };
 })();
 
 const Player = (name, marker) => {
