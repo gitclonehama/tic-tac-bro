@@ -28,12 +28,13 @@ body {
 }
 #playerForm {
   background-color: #e74c3c; /* Red */
-  width: 40%; min-width: 300px; max-width: 400px;
+  width: 40vw; min-width: 300px; max-width: 900px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
+  font-weight: bolder;
 }
 #playButton {
   background-color: #f1c40f; /* Yellow */
