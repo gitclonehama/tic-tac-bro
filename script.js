@@ -46,6 +46,7 @@ const Game = (name1, name2) => {
   const player1 = Player(name1, "X");
   const player2 = Player(name2, "O");
   let currentPlayer = player1;
+  let gameOver = false;
 
   // Initialize gameboard
   const board = Gameboard;
@@ -56,16 +57,19 @@ const Game = (name1, name2) => {
 
   // Play a turn (playing marker on board)
   const playTurn = (index) => {
+    if (gameOver) return; // Check if gameOver is active
+
     if (board.setBoard(index, currentPlayer.getMarker())) {  // Check if move is valid
       if (checkWin()) {
         displayController.displayMessage(`${currentPlayer.getName()} wins!`);
         displayController.showReplay();
-        
+        gameOver = true;
         return;
       }
       if (checkTie()) {
         displayController.displayMessage("It's a tie!");
         displayController.showReplay();
+        gameOver = true;
         return;
       }
       switchTurn();  // Move to the next player's turn
@@ -102,6 +106,7 @@ const Game = (name1, name2) => {
   const resetGame = () => {
     board.resetBoard();
     currentPlayer = player1;
+    gameOver = false;
   };
 
   // Return the public methods
