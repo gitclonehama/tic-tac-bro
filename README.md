@@ -4,7 +4,7 @@
 This project is a browser-based Tic Tac Toe game implemented using JavaScript for game logic and DOM manipulation. The game dynamically updates the UI and handles player interaction in real-time.
 
 ## Live Demo
-Check out the live demo here: [Hama's Tic Tac Bro](https://hamacodes.github.io/odin-tic-tac-toe/)
+Check out the live demo here: [Hama's Tic Tac Bro](https://hamacodes.github.io/tic-tac-bro/)
 
 ## Key Features
 - **Modular Design:** The game logic is encapsulated using factory functions and modules, resulting in a clean, maintainable structure with minimal global variables.
